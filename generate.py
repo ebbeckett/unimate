@@ -26,10 +26,10 @@ def Create_Robot():
     pyrosim.Send_Joint(name = "Torso_Frontleg", parent= "Torso", child = "Frontleg", type = "revolute", position = torso_frontleg_pos)
     pyrosim.Send_Cube(name="Frontleg", pos=frontleg_pos, size=[length, width, height])    
 
-    #print("torso backleg pos = ", torso_backleg_pos)
-    #print("torso frontleg pos = ", torso_frontleg_pos)
-    #print("backleg ", backleg_pos)
-    #print("front leg =", frontleg_pos)
+    print("torso backleg pos = ", torso_backleg_pos)
+    print("torso frontleg pos = ", torso_frontleg_pos)
+    print("backleg ", backleg_pos)
+    print("front leg =", frontleg_pos)
     pyrosim.End()
 
 Create_World()
