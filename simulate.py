@@ -33,9 +33,9 @@ for element in range(len(target_angles)):
     sin_array.append(amplitude * numpy.sin((frequency * element) + phaseOffset))
 #print(sin_array)
 
-#numpy.save(os.path.join('data','numpsin'), sin_array)
+numpy.save(os.path.join('data','numpsin'), sin_array)
 
-
+exit()
 #for i in range(1000):
 for i in range(len(sin_array)):
     p.stepSimulation()
