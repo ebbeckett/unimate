@@ -13,7 +13,7 @@ import matplotlib.pyplot
 
 sinVal = numpy.load('data/numpsin.npy')
 
-matplotlib.pyplot.plot(sinVal,linewidth=2, label="sin val" )
+matplotlib.pyplot.plot(sinVal,linewidth=4, label="sin val")
 matplotlib.pyplot.legend()
 
 matplotlib.pyplot.show()
