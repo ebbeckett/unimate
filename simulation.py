@@ -6,10 +6,13 @@ import pyrosim.pyrosim as pyrosim
 
 class SIMULATION:
     def __init__(self):
-        self.world = WORLD()
-        self.robot = ROBOT()
-
         self.physicsClient = p.connect(p.GUI)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
-        p.setGravity(0,0,-9.8) #is this working?   
-        pyrosim.Prepare_To_Simulate(robotID)
+        p.setGravity(0,0,-9.8) #is this working?
+        self.world = WORLD()
+        self.robot = ROBOT()
+        
+    
+        pyrosim.Prepare_To_Simulate(ROBOT.robotID) # may be an error
+
+
