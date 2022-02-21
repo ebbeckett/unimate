@@ -1,4 +1,5 @@
 import pybullet as p
+import pyrosim.pyrosim as pyrosim
 
 class ROBOT:
     def __init__(self):
