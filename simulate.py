@@ -9,21 +9,16 @@ import os
 import random
 import constants as c
 from simulation import SIMULATION
-from world import WORLD
-from robot import ROBOT
 
 simulation = SIMULATION()
 
-#physicsClient = p.connect(p.GUI)
-#p.setAdditionalSearchPath(pybullet_data.getDataPath())
-#p.setGravity(0,0,-9.8) #is this working?
-#planeId = p.loadURDF("plane.urdf")      
-#robotId = p.loadURDF("body.urdf")   
-#p.loadSDF("world.sdf")
+     
+
+
 
 #0.017
 
-#pyrosim.Prepare_To_Simulate(robotId)
+
 #backLegSensorValues = numpy.zeros(1000)
 #frontLegSensorValues = numpy.zeros(1000)
 
