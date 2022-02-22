@@ -20,8 +20,7 @@ simulation.run()
 #0.017
 
 
-#backLegSensorValues = numpy.zeros(1000)
-#frontLegSensorValues = numpy.zeros(1000)
+
 
 
 #target_angles = numpy.linspace(-numpy.pi, 2*numpy.pi, 1000)
