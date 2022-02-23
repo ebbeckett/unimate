@@ -1,5 +1,6 @@
 from world import WORLD
 from robot import ROBOT
+from motor import MOTOR
 
 import pyrosim.pyrosim as pyrosim
 import pybullet as p
@@ -14,9 +15,12 @@ class SIMULATION:
 
         self.world = WORLD()
         self.robot = ROBOT()
+        #self.motor = MOTOR()
 
         pyrosim.Prepare_To_Simulate(p.loadURDF("body.urdf"))
         self.robot.Prepare_To_Sense()
+        #self.motor.Prepare_To_Act() # do i call it here or inside motor's constructor (may cause an error)
+
 
     def Run(self):
         for i in range(1000): # used to be len(bck_sin_array))
