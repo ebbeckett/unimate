@@ -1,6 +1,5 @@
 from world import WORLD
 from robot import ROBOT
-from motor import MOTOR
 
 import pyrosim.pyrosim as pyrosim
 import pybullet as p
@@ -15,25 +14,17 @@ class SIMULATION:
 
         self.world = WORLD()
         self.robot = ROBOT()
-        #self.motor = MOTOR()
 
-        pyrosim.Prepare_To_Simulate(p.loadURDF("body.urdf"))
-        self.robot.Prepare_To_Sense()
-        #self.motor.Prepare_To_Act() # do i call it here or inside motor's constructor (may cause an error)
 
+        #pyrosim.Prepare_To_Simulate(p.loadURDF("body.urdf"))
+        #self.robot.Prepare_To_Sense()
 
     def Run(self):
         for i in range(1000): # used to be len(bck_sin_array))
             p.stepSimulation()
             self.robot.Sense(i)
-
-
-
-            # pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = "Torso_Backleg", controlMode = p.POSITION_CONTROL, targetPosition = bck_sin_array[i], maxForce = 50)
-            # pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = "Torso_Frontleg", controlMode = p.POSITION_CONTROL, targetPosition = frnt_sin_array[i], maxForce = 50)
+            self.robot.Act(i)
             time.sleep(0.017)
-    #print(i)
-    #print(backLegSensorValues[i])
 
     def __del__(self):  
         p.disconnect()
