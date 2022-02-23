@@ -12,9 +12,12 @@ class ROBOT:
     
     def Prepare_To_Sense(self):
         self.sensors = {}
-        for linkName in pyrosim.linkNamesToIndices:
-            self.sensors[linkName] = SENSOR(linkName)
+        for jointName in pyrosim.jointNamesToIndices:
+            self.sensors[jointName] = SENSOR(jointName)
     
     def Sense(self, i):
         for key in self.sensors:
             self.sensors[key].Get_Value(i)
+    
+    def Prepare_To_Act(self):
+        pass
