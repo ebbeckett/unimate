@@ -12,9 +12,9 @@ class MOTOR:
         self.motorValues = []
         self.jointName = jointName
 
-        self.amplitude = c.bck_amplitude
-        self.frequency = c.bck_frequency
-        self.offset = c.bck_phaseOffset
+        self.amplitude = np.pi / 4
+        self.frequency = 0.06
+        self.offset = 0
 
         self.targetAngles = np.linspace(-np.pi, 2*np.pi, 1000)
 
@@ -27,7 +27,7 @@ class MOTOR:
                 self.motorValues.append(self.amplitude * np.sin((self.frequency * x) + self.offset))
         else:
             for x in range(len(self.targetAngles)):
-                self.motorValues.append(self.amplitude * np.sin((self.frequency/2 * x) + self.offset))
+                self.motorValues.append(self.amplitude/.5 * np.sin((self.frequency * x)/0.5 + self.offset))
 
 
     def Set_Value(self, i, robot):
