@@ -1,4 +1,5 @@
-import numpy
+import numpy 
+import numpy as np
 import pyrosim.pyrosim as pyrosim
 import pybullet as p
 import pybullet_data
@@ -13,3 +14,6 @@ class SENSOR:
         
         if(i == 1000):
             print(self.values[i])
+    
+    def Save_Values(self):
+        np.save("data/" + str(self.linkName) + "Sensor", self.values)
