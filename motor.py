@@ -21,13 +21,13 @@ class MOTOR:
         MOTOR.Prepare_To_Act(self)
         #self.Prepare_To_Act(c.bck_amplitude, c.bck_frequency, c.bck_phaseOffset)
     
-    def Prepare_To_Act(self, amplitude, frequency, offset):
+    def Prepare_To_Act(self):
         if(self.jointName == "Torso_Frontleg"):     
             for x in range(len(self.targetAngles)):
                 self.motorValues.append(self.amplitude * np.sin((self.frequency * x) + self.offset))
         else:
-            for x in range(len(self.frequency/2)):
-                self.motorValues.append(self.amplitude * np.sin((self.frequency * x) + self.offset))
+            for x in range(len(self.targetAngles)):
+                self.motorValues.append(self.amplitude * np.sin((self.frequency/2 * x) + self.offset))
 
 
     def Set_Value(self, i, robot):
