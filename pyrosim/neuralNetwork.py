@@ -1,4 +1,6 @@
 from curses import keyname
+
+from numpy import true_divide
 from pyrosim.neuron  import NEURON
 
 from pyrosim.synapse import SYNAPSE
@@ -40,6 +42,16 @@ class NEURAL_NETWORK:
         keyNames = self.neurons.keys()
 
         return keyNames
+    
+    def Is_Motor_Neuron(self, neuronName):
+        if self.neurons[neuronName].Is_Motor_Neuron():
+            return True
+
+    def Get_Motor_Neurons_Joint(self, neuronName):
+        return self.neurons[neuronName].Get_Joint_Name()
+    
+    def Get_Value_Of(self, neuronName):
+        return self.neurons[neuronName].Get_Value()
 
 # ---------------- Private methods --------------------------------------
 
