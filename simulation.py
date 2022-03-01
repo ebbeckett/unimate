@@ -23,6 +23,7 @@ class SIMULATION:
         for i in range(1000): # used to be len(bck_sin_array))
             p.stepSimulation()
             self.robot.Sense(i)
+            self.robot.Think()
             self.robot.Act(i)
             time.sleep(0.0002)
 

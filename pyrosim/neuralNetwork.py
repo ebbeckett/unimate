@@ -1,3 +1,4 @@
+from curses import keyname
 from pyrosim.neuron  import NEURON
 
 from pyrosim.synapse import SYNAPSE
@@ -27,6 +28,18 @@ class NEURAL_NETWORK:
         self.Print_Motor_Neuron_Values()
 
         print("")
+    
+    def Update(self):
+        for key in self.neurons:
+            if self.neurons[key].Is_Sensor_Neuron():
+                self.neurons[key].Update_Sensor_Neuron()
+            else:
+                self.neurons[key].Update_Hidden_Or_Motor_Neuron()
+    
+    def Get_Neuron_Names(self):
+        keyNames = self.neurons.keys()
+
+        return keyNames
 
 # ---------------- Private methods --------------------------------------
 
