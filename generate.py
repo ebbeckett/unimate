@@ -1,4 +1,5 @@
 import pyrosim.pyrosim as pyrosim
+import random
 
 length = 1
 width = 1
@@ -31,10 +32,6 @@ def Generate_Body():
     pyrosim.Send_Joint(name = "Torso_Frontleg", parent= "Torso", child = "Frontleg", type = "revolute", position = torso_frontleg_pos)
     pyrosim.Send_Cube(name="Frontleg", pos=frontleg_pos, size=[length, width, height])    
 
-    # print("torso backleg pos = ", torso_backleg_pos)
-    # print("torso frontleg pos = ", torso_frontleg_pos)
-    # print("backleg ", backleg_pos)
-    # print("front leg =", frontleg_pos)
     pyrosim.End()
 
 def Generate_Brain():
@@ -47,9 +44,10 @@ def Generate_Brain():
     pyrosim.Send_Motor_Neuron( name = 3 , jointName = "Torso_Backleg")
     pyrosim.Send_Motor_Neuron( name = 4 , jointName = "Torso_Frontleg")
 
-    pyrosim.Send_Synapse( sourceNeuronName = 0 , targetNeuronName = 3 , weight = -0.9 )
-    pyrosim.Send_Synapse( sourceNeuronName = 1 , targetNeuronName = 3 , weight = -0.9 )
-    pyrosim.Send_Synapse( sourceNeuronName = 2 , targetNeuronName = 4 , weight = -0.5 )
+    for i in range(3):
+        for x in range(2):
+            randNum = random.randint(-1,1)
+            pyrosim.Send_Synapse(sourceNeuronName = i, targetNeuronName = x+3, weight = randNum)
 
 
     pyrosim.End()
@@ -59,4 +57,6 @@ Create_World()
 Generate_Body()
 Generate_Brain()
 #Create_Robot()
+
+
 
