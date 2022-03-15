@@ -36,5 +36,5 @@ class HILL_CLIMBER:
         print("parent:", self.parent.fitness, "child:", self.child.fitness)
     
     def Show_Best(self): # no idea what this function is supposed to do
-        self.parent = self.parent
+        self.parent
         
