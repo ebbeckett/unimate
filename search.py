@@ -9,3 +9,4 @@ for i in range(1):
 
 hc = HILL_CLIMBER()
 hc.Evolve()
+hc.Show_Best()

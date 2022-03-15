@@ -9,12 +9,12 @@ class SOLUTION:
         self.weights = np.array([[np.random.rand(),np.random.rand()], [np.random.rand(),np.random.rand()], [np.random.rand(), np.random.rand()]])
         self.weights = self.weights * 2 - 1
     
-    def Evaluate(self):
+    def Evaluate(self, DORG): #IM PASSIN DORG WHICH IS THE ELSE, WHICH IS MAKING THE GRAPHICS SHOW, FIX LATER
         Create_World()
         Generate_Body()
         Generate_Brain()
 
-        os.system("python3 simulate.py")
+        os.system("python3 simulate.py DORG")
 
         f = open("fitness.txt", "r")
         readString = f.read()
@@ -79,7 +79,7 @@ class SOLUTION:
         pyrosim.End()
     
     def Mutate(self):
-        randomRow = random.randint(1,3)
-        randomCol = random.randint(1,2)
+        randomRow = random.randint(0,2)
+        randomCol = random.randint(0,1)
         self.weights[randomRow, randomCol] = random.random()*2 - 1 # might brake here
         
