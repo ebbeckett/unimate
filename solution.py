@@ -1,6 +1,8 @@
 import numpy as np
+from generate import Create_World, Generate_Body, Generate_Brain
 import pyrosim.pyrosim as pyrosim
 import random
+import os
 class SOLUTION:
 
     def __init__(self):
@@ -8,7 +10,20 @@ class SOLUTION:
         self.weights = self.weights * 2 - 1
     
     def Evaluate(self):
-        pass
+        Create_World()
+        Generate_Body()
+        Generate_Brain()
+
+        os.system("python3 simulate.py")
+
+        f = open("fitness.txt", "r")
+        readString = f.read()
+        f.close() # might break here
+        readFloat = float(readString)
+
+        self.fitness = readFloat
+
+
 
     def Create_World():
         length = 1
@@ -47,7 +62,7 @@ class SOLUTION:
 
         pyrosim.End()
 
-    def Generate_Brain():
+    def Generate_Brain(self):
         pyrosim.Start_NeuralNetwork("brain.nndf")
         pyrosim.Send_Sensor_Neuron(name = 0 , linkName = "Torso")
         pyrosim.Send_Sensor_Neuron(name = 1 , linkName = "Backleg")
@@ -60,4 +75,11 @@ class SOLUTION:
             for currentColumn in range(2):
                 randNum = random.randint(-1,1)
                 pyrosim.Send_Synapse(sourceNeuronName = currentRow, targetNeuronName = currentColumn+3, weight = self.weights[currentRow][currentColumn])
+
         pyrosim.End()
+    
+    def Mutate(self):
+        randomRow = random.randint(1,3)
+        randomCol = random.randint(1,2)
+        self.weights[randomRow, randomCol] = random.random()*2 - 1 # might brake here
+        

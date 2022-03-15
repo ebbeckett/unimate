@@ -15,6 +15,7 @@ from robot import ROBOT
 
 simulation = SIMULATION()
 simulation.Run()
+simulation.Get_Fitnes()
 
 
 
