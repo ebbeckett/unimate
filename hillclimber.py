@@ -9,7 +9,7 @@ class HILL_CLIMBER:
 
     def Evolve(self):
         self.parent.Evaluate()
-        for currentGeneration in c.numberOfGenerations:
+        for currentGeneration in range(c.numberOfGenerations):
             self.Evolve_For_One_Generation()
 
 
@@ -24,9 +24,9 @@ class HILL_CLIMBER:
 
     def Mutate(self):
        self.child.Mutate()
-       print("parents:")
-       print("child;")
-       exit()
+
 
     def Select(self):
-        pass
+        if(self.parent.fitness > self.child.fitness):
+            self.parent = self.child
+        
