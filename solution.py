@@ -9,7 +9,7 @@ class SOLUTION:
         self.weights = np.array([[np.random.rand(),np.random.rand()], [np.random.rand(),np.random.rand()], [np.random.rand(), np.random.rand()]])
         self.weights = self.weights * 2 - 1
     
-    def Evaluate(self, DORG): #IM PASSIN DORG WHICH IS THE ELSE, WHICH IS MAKING THE GRAPHICS SHOW, FIX LATER
+    def Evaluate(self, DORG): #IM PASSIN DORG WHICH IS THE ELSE, WHICH IS MAKING THE GRAPHICS SHOW, FIX LATER 
         Create_World()
         Generate_Body()
         Generate_Brain()
