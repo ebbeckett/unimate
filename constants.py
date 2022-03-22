@@ -9,3 +9,4 @@ frnt_frequency = 0.06
 frnt_phaseOffset = 0
 
 numberOfGenerations = 10
+populationSize = 2

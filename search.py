@@ -1,12 +1,14 @@
 import os
-from hillclimber import HILL_CLIMBER
+from parallelHillClimber import PARALLEL_HILL_CLIMBER
 
+os.system("python3 parallelHillClimber.py")
 
-for i in range(1):
+#for i in range(1):
     # os.system("python3 generate.py")
     # os.system("python3 simulate.py")
-    os.system("python3 hillclimber.py")
+    # os.system("python3 parallelHillClimber.py")
 
-hc = HILL_CLIMBER()
-hc.Evolve()
-hc.Show_Best()
+
+phc = PARALLEL_HILL_CLIMBER()
+phc.Evolve("GUI")
+phc.Show_Best()
