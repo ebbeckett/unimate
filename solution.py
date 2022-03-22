@@ -5,7 +5,8 @@ import random
 import os
 class SOLUTION:
 
-    def __init__(self):
+    def __init__(self, myID):
+        self.myID = myID
         self.weights = np.array([[np.random.rand(),np.random.rand()], [np.random.rand(),np.random.rand()], [np.random.rand(), np.random.rand()]])
         self.weights = self.weights * 2 - 1
     
@@ -14,7 +15,8 @@ class SOLUTION:
         Generate_Body()
         Generate_Brain()
 
-        os.system("python3 simulate.py DORG")
+        #os.system("python3 simulate.py " + DORG)
+        os.system("python3 simulate.py " + DORG + " &")
 
         f = open("fitness.txt", "r")
         readString = f.read()
@@ -82,4 +84,7 @@ class SOLUTION:
         randomRow = random.randint(0,2)
         randomCol = random.randint(0,1)
         self.weights[randomRow, randomCol] = random.random()*2 - 1 # might brake here
+    
+    def Set_ID(self):
+        pass
         
