@@ -8,5 +8,5 @@ frnt_amplitude = numpy.pi/4
 frnt_frequency = 0.06
 frnt_phaseOffset = 0
 
-numberOfGenerations = 10
-populationSize = 2
+numberOfGenerations = 8
+populationSize = 8

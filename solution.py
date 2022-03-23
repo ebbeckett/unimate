@@ -3,31 +3,44 @@ from generate import Create_World, Generate_Body, Generate_Brain
 import pyrosim.pyrosim as pyrosim
 import random
 import os
+import time
 class SOLUTION:
 
     def __init__(self, myID):
         self.myID = myID
-        self.weights = np.array([[np.random.rand(),np.random.rand()], [np.random.rand(),np.random.rand()], [np.random.rand(), np.random.rand()]])
+        self.weights = np.random.rand(3,2)
         self.weights = self.weights * 2 - 1
     
-    def Evaluate(self, DORG): #IM PASSIN DORG WHICH IS THE ELSE, WHICH IS MAKING THE GRAPHICS SHOW, FIX LATER 
-        Create_World()
-        Generate_Body()
-        Generate_Brain()
+    def Evaluate(self, directOrGUI):
+        pass
+    
+    def Start_Simulation(self, directOrGUI): #IM PASSIN DORG WHICH IS THE ELSE, WHICH IS MAKING THE GRAPHICS SHOW, FIX LATER 
+        self.Create_World()
+        self.Generate_Body()
+        self.Generate_Brain()
 
         #os.system("python3 simulate.py " + DORG)
-        os.system("python3 simulate.py " + DORG + " &")
+        os.system("python3 simulate.py " + directOrGUI + " " + str(self.myID) + " &")
 
-        f = open("fitness.txt", "r")
-        readString = f.read()
-        f.close() # might break here
-        readFloat = float(readString)
+        # f = open("fitness.txt", "r")
+        # readString = f.read()
+        # f.close() # might break here
+        # readFloat = float(readString)
 
-        self.fitness = readFloat
+        # self.fitness = readFloat
 
+    def Wait_For_Simulation_To_End(self):
+        fitnessFile = "fitness" + str(self.myID) + ".txt"
+        while not os.path.exists(fitnessFile):
+            time.sleep(0.01)
+        
+        f = open(fitnessFile, "r")
+        self.fitness = float(f.read())
+        f.close()
+        os.remove(fitnessFile)
+        
 
-
-    def Create_World():
+    def Create_World(self):
         length = 1
         width = 1
         height = 1
@@ -40,7 +53,7 @@ class SOLUTION:
         pyrosim.Send_Cube(name="Box", pos=[3, 3, 0.5], size=[length, width, height])
         pyrosim.End()
 
-    def Generate_Body():
+    def Generate_Body(self):
         length = 1
         width = 1
         height = 1
@@ -65,7 +78,7 @@ class SOLUTION:
         pyrosim.End()
 
     def Generate_Brain(self):
-        pyrosim.Start_NeuralNetwork("brain.nndf")
+        pyrosim.Start_NeuralNetwork("brainID.nndf")
         pyrosim.Send_Sensor_Neuron(name = 0 , linkName = "Torso")
         pyrosim.Send_Sensor_Neuron(name = 1 , linkName = "Backleg")
         pyrosim.Send_Sensor_Neuron(name = 2 , linkName = "Frontleg")
@@ -86,5 +99,5 @@ class SOLUTION:
         self.weights[randomRow, randomCol] = random.random()*2 - 1 # might brake here
     
     def Set_ID(self):
-        pass
+        return self.myID
         

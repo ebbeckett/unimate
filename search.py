@@ -10,5 +10,5 @@ os.system("python3 parallelHillClimber.py")
 
 
 phc = PARALLEL_HILL_CLIMBER()
-phc.Evolve("GUI")
+phc.Evolve()
 phc.Show_Best()

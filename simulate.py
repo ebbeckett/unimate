@@ -14,9 +14,10 @@ from simulation import SIMULATION
 from world import WORLD
 from robot import ROBOT
 
-#directOrGUI = sys.argv[1]
+directOrGUI = sys.argv[1]
+solutionID = sys.argv[2]
 
-simulation = SIMULATION("GUI")
+simulation = SIMULATION(directOrGUI, solutionID)
 simulation.Run()
 simulation.Get_Fitnes()
 
