@@ -1,25 +1,16 @@
-from cmath import sin
-from time import sleep
-import pybullet as p
-import time
-import pybullet_data
-import pyrosim.pyrosim as pyrosim
-import numpy
-import os
-import random
-import constants as c
+from simulation import SIMULATION
 import sys
 
-from simulation import SIMULATION
-from world import WORLD
-from robot import ROBOT
+# class SIMULATE:
+#     def __init__(self):
+#         pass
 
-directOrGUI = sys.argv[1]
+directOrGui = sys.argv[1]
 solutionID = sys.argv[2]
 
-simulation = SIMULATION(directOrGUI, solutionID)
+simulation = SIMULATION(directOrGui, solutionID)
 simulation.Run()
-simulation.Get_Fitnes()
+simulation.Get_Fitness()
 
 
 
