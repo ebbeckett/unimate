@@ -67,11 +67,11 @@ class SOLUTION:
         pyrosim.Send_Joint(name="Backleg_BacklowerLeg", parent="Backleg", child="BackLowerleg", type="revolute", position=[0, -0.5, 0], jointAxis = "1 0 0")
         pyrosim.Send_Cube(name="BackLowerleg", pos=[0, -0.5, -0.5], size=[0.2, 0.2, 1])
         
-        pyrosim.Send_Joint(name="Leftleg_Leftlowerleg", parent="Leftleg", child="LeftLowerleg", type="revolute", position=[-0.5, 0, 0], jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name="LeftLowerleg", pos=[-0.5, 0, -0.5], size=[0.2, 0.2, 1])
+        # pyrosim.Send_Joint(name="Leftleg_Leftlowerleg", parent="Leftleg", child="LeftLowerleg", type="revolute", position=[-0.5, 0, 0], jointAxis = "1 0 0")
+        # pyrosim.Send_Cube(name="LeftLowerleg", pos=[-0.5, 0, -0.5], size=[0.2, 0.2, 1])
 
-        pyrosim.Send_Joint(name="Rightleg_RightLowerleg", parent="Rightleg", child="RightLowerleg", type="revolute", position=[0.5, 0, 0], jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name="RightLowerleg", pos=[0.5, 0, -0.5], size=[0.2, 0.2, 1])
+        # pyrosim.Send_Joint(name="Rightleg_RightLowerleg", parent="Rightleg", child="RightLowerleg", type="revolute", position=[0.5, 0, 0], jointAxis = "1 0 0")
+        # pyrosim.Send_Cube(name="RightLowerleg", pos=[0.5, 0, -0.5], size=[0.2, 0.2, 1])
       
         pyrosim.End()
 
@@ -96,9 +96,9 @@ class SOLUTION:
         pyrosim.Send_Motor_Neuron(name=5, jointName="Torso_LeftLeg")
         pyrosim.Send_Motor_Neuron(name=6, jointName="Torso_RightLeg")
         pyrosim.Send_Motor_Neuron(name=7, jointName="Frontleg_FrontlowerLeg")
-        pyrosim.Send_Motor_Neuron(name=8, jointName="Backleg_BacklowerLeg")
-        pyrosim.Send_Motor_Neuron(name=9, jointName="Leftleg_Leftlowerleg")
-        pyrosim.Send_Motor_Neuron(name=10, jointName="Rightleg_RightLowerleg")
+        # pyrosim.Send_Motor_Neuron(name=8, jointName="Backleg_BacklowerLeg")
+        # pyrosim.Send_Motor_Neuron(name=9, jointName="Leftleg_Leftlowerleg")
+        # pyrosim.Send_Motor_Neuron(name=10, jointName="Rightleg_RightLowerleg")
 
         for currentRow in range(c.numSensorNeurons):
             for currentColumn in range(c.numMotorNeurons):
