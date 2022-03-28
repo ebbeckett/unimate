@@ -8,5 +8,8 @@ frnt_amplitude = numpy.pi/4
 frnt_frequency = 0.06
 frnt_phaseOffset = 0
 
-numberOfGenerations = 6
-populationSize = 6
+numberOfGenerations = 1
+populationSize = 1
+
+numSensorNeurons = 9
+numMotorNeurons = 8
