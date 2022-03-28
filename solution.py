@@ -86,8 +86,8 @@ class SOLUTION:
         pyrosim.Send_Sensor_Neuron(name=4, linkName="Rightleg")
         pyrosim.Send_Sensor_Neuron(name=5, linkName="FrontLowerleg")
         pyrosim.Send_Sensor_Neuron(name=6, linkName="BackLowerleg")
-        pyrosim.Send_Sensor_Neuron(name=6, linkName="LeftLowerleg")
-        pyrosim.Send_Sensor_Neuron(name=6, linkName="RightLowerleg")
+        pyrosim.Send_Sensor_Neuron(name=7, linkName="LeftLowerleg")
+        pyrosim.Send_Sensor_Neuron(name=8, linkName="RightLowerleg")
 
 
         # Motor neuron
@@ -97,8 +97,8 @@ class SOLUTION:
         pyrosim.Send_Motor_Neuron(name=6, jointName="Torso_RightLeg")
         pyrosim.Send_Motor_Neuron(name=7, jointName="Frontleg_FrontlowerLeg")
         pyrosim.Send_Motor_Neuron(name=8, jointName="Backleg_BacklowerLeg")
-        pyrosim.Send_Motor_Neuron(name=8, jointName="Leftleg_Leftlowerleg")
-        pyrosim.Send_Motor_Neuron(name=8, jointName="Rightleg_RightLowerleg")
+        pyrosim.Send_Motor_Neuron(name=9, jointName="Leftleg_Leftlowerleg")
+        pyrosim.Send_Motor_Neuron(name=10, jointName="Rightleg_RightLowerleg")
 
         for currentRow in range(c.numSensorNeurons):
             for currentColumn in range(c.numMotorNeurons):
