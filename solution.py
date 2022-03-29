@@ -68,7 +68,7 @@ class SOLUTION:
         pyrosim.Send_Joint(name="Backleg_BacklowerLeg", parent="BackLeg", child="BackLowerleg", type="revolute", position=[0, -1, 0], jointAxis = "1 0 0")
         pyrosim.Send_Cube(name="BackLowerleg", pos=[0, 0, -0.5], size=[0.2, 0.2, 1])
         
-        pyrosim.Send_Joint(name="Leftleg_Leftlowerleg", parent="FrontLeg", child="LeftLowerleg", type="revolute", position=[-1, 0, 0], jointAxis = "0 1 0")
+        pyrosim.Send_Joint(name="Leftleg_Leftlowerleg", parent="FrontLeg", child="LeftLowerleg", type="revolute", position=[-1.5, -0.5, 0], jointAxis = "0 1 0")
         pyrosim.Send_Cube(name="LeftLowerleg", pos=[0, 0, -0.5], size=[0.2, 0.2, 1])
 
         pyrosim.Send_Joint(name="Rightleg_RightLowerleg", parent="Rightleg", child="RightLowerleg", type="revolute", position=[1, 0, 0], jointAxis = "0 1 0")
