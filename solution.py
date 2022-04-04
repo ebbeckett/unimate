@@ -9,7 +9,7 @@ class SOLUTION:
     def __init__(self, myID):
         self.myID = myID
         self.weights = np.random.rand(c.numSensorNeurons, c.numMotorNeurons)
-        self.weights = self.weights * c.numMotorNeurons - 1
+        self.weights = (self.weights * 2) - 1 # might brake
       #  print(self.weights)
 
     def Evaluate(self, directOrGui):
@@ -111,7 +111,7 @@ class SOLUTION:
     def Mutate(self):
         randomRow = random.randint(0, c.numMotorNeurons)
         randomColumn = random.randint(0, 1)
-        self.weights[randomRow, randomColumn] = random.random() * c.numMotorNeurons - 1
+        self.weights[randomRow, randomColumn] = (random.random() * 2) - 1
 
     def Set_ID(self):
         return self.myID

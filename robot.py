@@ -56,9 +56,14 @@ class ROBOT:
                # print('Neuron Name: ' + neuronName + ', Joint Name: ' + jointName + ', Desired Angle: ' + str(desiredAngle))
 
     def Get_Fitness(self):
-        self.stateOfLinkZero = p.getLinkState(self.robotId,0)
-        self.positionOfLinkZero = self.stateOfLinkZero[0]
-        self.xCoordinateOfLinkZero = self.positionOfLinkZero[0]
+        # self.stateOfLinkZero = p.getLinkState(self.robotId,0)
+        basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
+
+        # self.positionOfLinkZero = self.stateOfLinkZero[0]
+        basePosition = basePositionAndOrientation[0]
+
+        # self.xCoordinateOfLinkZero = self.positionOfLinkZero[0]
+        xPosition = basePosition[0]
 
         fitnessFile = "fitness" + str(self.solutionID) + ".txt"
         tempFile = "tmp" + str(self.solutionID) + ".txt"
