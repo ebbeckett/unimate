@@ -11,6 +11,7 @@ import hillclimber as hc
 os.system("python3 parallelHillClimber.py")
 
 phc = PARALLEL_HILL_CLIMBER()
+
 phc.Evolve()
 phc.Show_Best()
 

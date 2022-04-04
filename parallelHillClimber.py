@@ -48,7 +48,7 @@ class PARALLEL_HILL_CLIMBER:
     def Select(self):
 
         for key in range(c.populationSize):
-            if (self.parents[key].fitness > self.children[key].fitness):
+            if (self.parents[key].fitness > self.children[key].fitness): # change 1
                 self.parents = self.children
 
     def Print(self):
@@ -62,8 +62,8 @@ class PARALLEL_HILL_CLIMBER:
         self.Select()
         mostFitKey = 0
         for key in range(c.populationSize-1):
-            if (self.parents[key].fitness > self.parents[key+1].fitness):
-                mostFitKey = key+1
+            if (self.parents[key].fitness > self.parents[key+1].fitness): # change two
+                mostFitKey = key+1 
         self.parents[mostFitKey].Start_Simulation("GUI")
 
     def Evaluate(self, solutions):

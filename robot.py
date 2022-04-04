@@ -5,6 +5,7 @@ from motor import MOTOR
 import time
 from pyrosim.neuralNetwork import NEURAL_NETWORK
 import os
+import math
 
 import constants as c
 import sensor as s
@@ -37,6 +38,7 @@ class ROBOT:
     def Sense(self, i):
         for s in self.sensors:
             self.sensors[s].Get_Value(i)
+            
 
     def Think(self):
         self.nn.Update()
