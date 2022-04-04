@@ -11,6 +11,6 @@ frnt_phaseOffset = 0
 numberOfGenerations = 1
 populationSize = 1
 
-numSensorNeurons = 11
-numMotorNeurons = 10
+numSensorNeurons = 13
+numMotorNeurons = 12
 motorJointRange = 0.2
