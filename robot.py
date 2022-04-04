@@ -69,7 +69,7 @@ class ROBOT:
         tempFile = "tmp" + str(self.solutionID) + ".txt"
         f = open(tempFile, "w")
         os.system('mv ' + tempFile + ' ' + fitnessFile)
-        f.write(str(self.xCoordinateOfLinkZero))
+        f.write(str(xPosition))
         f.close()
 
         exit()
