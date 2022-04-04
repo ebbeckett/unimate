@@ -61,7 +61,7 @@ class SOLUTION:
         
         pyrosim.Send_Joint(name="Torso_RightLeg", parent="Torso", child="Rightleg", type="revolute", position=[0.5, 0, 1], jointAxis = "0 1 0")
         pyrosim.Send_Cube(name="Rightleg", pos=[0.5, -0.3, 0], size=[1, 0.2, 0.2]) # first of the backleg to make hexa
-        pyrosim.Send_Joint(name="Torso_RightLegTwo", parent="Torso", child="Rightleg", type="revolute", position=[0.5, 0, 1], jointAxis = "0 1 0")
+        pyrosim.Send_Joint(name="Torso_RightLegTwo", parent="Torso", child="RightlegTwo", type="revolute", position=[0.5, 0, 1], jointAxis = "0 1 0")
         pyrosim.Send_Cube(name="RightlegTwo", pos=[0.5, 0.3, 0], size=[1, 0.2, 0.2]) # second of the backleg to make hexa
        
         pyrosim.Send_Joint(name="Frontleg_FrontlowerLeg", parent="FrontLeg", child="FrontLowerleg", type="revolute", position=[0, 1, 0], jointAxis = "1 0 0")
