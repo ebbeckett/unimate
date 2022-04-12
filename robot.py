@@ -5,7 +5,6 @@ from motor import MOTOR
 import time
 from pyrosim.neuralNetwork import NEURAL_NETWORK
 import os
-import math
 
 import constants as c
 import sensor as s
@@ -38,42 +37,35 @@ class ROBOT:
     def Sense(self, i):
         for s in self.sensors:
             self.sensors[s].Get_Value(i)
-            
 
     def Think(self):
         self.nn.Update()
-       # self.nn.Print()
 
     def Prepare_To_Act(self):
         for jointName in pyrosim.jointNamesToIndices:
-            # print(linkName)
             self.motors[jointName] = MOTOR(jointName)
 
     def Act(self):
         for neuronName in self.nn.Get_Neuron_Names():
             if self.nn.Is_Motor_Neuron(neuronName):
                 jointName = self.nn.Get_Motor_Neurons_Joint(neuronName)
-                desiredAngle = self.nn.Get_Value_Of(neuronName)
-                self.motors[jointName].Set_Value((desiredAngle*c.motorJointRange), self.robotId)
-               # print('Neuron Name: ' + neuronName + ', Joint Name: ' + jointName + ', Desired Angle: ' + str(desiredAngle))
+                desiredAngle = (self.nn.Get_Value_Of(neuronName)) * c.motorJointRange
+                self.motors[jointName].Set_Value(desiredAngle, self.robotId)
 
     def Get_Fitness(self):
-        # self.stateOfLinkZero = p.getLinkState(self.robotId,0)
-        basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
+        self.stateOfLinkZero = p.getLinkState(self.robotId, 0)
+        self.positionOfLinkZero = self.stateOfLinkZero[0]
+        self.xCoordinateOfLinkZero = self.positionOfLinkZero[0]
 
-        # self.positionOfLinkZero = self.stateOfLinkZero[0]
-        basePosition = basePositionAndOrientation[0]
-
-        # self.xCoordinateOfLinkZero = self.positionOfLinkZero[0]
-        xPosition = basePosition[0]
+        # basePositionAndOrientation = p.getBasePositionAndOrientation(self.robot)
+        # basePosition = basePositionAndOrientation[0]
+        # xPosition = basePosition[0]
 
         fitnessFile = "fitness" + str(self.solutionID) + ".txt"
         tempFile = "tmp" + str(self.solutionID) + ".txt"
         f = open(tempFile, "w")
         os.system('mv ' + tempFile + ' ' + fitnessFile)
-        f.write(str(xPosition))
+        # f.write(str(xPosition))
+        f.write(str(self.xCoordinateOfLinkZero))
+      #   f.write(str(xPosition))
         f.close()
-
-        exit()
-    
-    

@@ -1,16 +1,24 @@
-import numpy
+import numpy as np
 
-bck_amplitude = numpy.pi/4
-bck_frequency = 0.06
-bck_phaseOffset = 0
+targetAngles = np.linspace(-np.pi, 2*np.pi, 1000)
+amplitude = np.pi / 4
+frequency = 0.06
+offset = 0
 
-frnt_amplitude = numpy.pi/4
-frnt_frequency = 0.06
-frnt_phaseOffset = 0
+back_amplitude = -np.pi / 4
+front_amplitude = np.pi / 4
 
-numberOfGenerations = 1
-populationSize = 1
+back_frequency = 0.06
+front_frequency = -0.06
 
-numSensorNeurons = 13
+back_phaseOffset = 0
+front_phaseOffset = 0
+
+numberOfGenerations = 5
+populationSize = 5
+
+numSensorNeurons = 6
 numMotorNeurons = 12
+
 motorJointRange = 0.2
+

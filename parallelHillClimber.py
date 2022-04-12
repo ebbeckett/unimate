@@ -9,15 +9,11 @@ class PARALLEL_HILL_CLIMBER:
         os.system('rm brain*.nndf')
         os.system('rm fitness*.txt')
 
-     #   os.remove('brain*.nndf')
-       # os.remove('fitness0.txt')
-
         self.parents = {}
         self.nextAvailableID = 0
         for key in range(0, c.populationSize):
             self.parents[key] = SOLUTION(self.nextAvailableID)
             self.nextAvailableID += 1
-           # print(self.parents)
 
     def Evolve(self):
 
@@ -48,7 +44,7 @@ class PARALLEL_HILL_CLIMBER:
     def Select(self):
 
         for key in range(c.populationSize):
-            if (self.parents[key].fitness > self.children[key].fitness): # change 1
+            if (self.parents[key].fitness > self.children[key].fitness):
                 self.parents = self.children
 
     def Print(self):
@@ -62,8 +58,8 @@ class PARALLEL_HILL_CLIMBER:
         self.Select()
         mostFitKey = 0
         for key in range(c.populationSize-1):
-            if (self.parents[key].fitness > self.parents[key+1].fitness): # change two
-                mostFitKey = key+1 
+            if (self.parents[key].fitness > self.parents[key+1].fitness):
+                mostFitKey = key+1
         self.parents[mostFitKey].Start_Simulation("GUI")
 
     def Evaluate(self, solutions):

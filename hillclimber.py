@@ -5,13 +5,12 @@ import copy
 class HILL_CLIMBER:
     def __init__(self):
         self.parent = SOLUTION()
-    
 
     def Evolve(self):
-        self.parent.Evaluate("DIRECT")
-        for currentGeneration in range(c.numberOfGenerations):
-            self.Evolve_For_One_Generation()
+        self.parent.Evaluate("GUI")
 
+        for currentGeneration in range(10):
+            self.Evolve_For_One_Generation()
 
     def Evolve_For_One_Generation(self):
         self.Spawn()
@@ -19,22 +18,23 @@ class HILL_CLIMBER:
         self.child.Evaluate("DIRECT")
         self.Print()
         self.Select()
-        
-    
+
     def Spawn(self):
         self.child = copy.deepcopy(self.parent)
 
     def Mutate(self):
-       self.child.Mutate()
-
+        self.child.Mutate()
 
     def Select(self):
-        if(self.parent.fitness > self.child.fitness):
+
+        if (self.parent.fitness > self.child.fitness):
             self.parent = self.child
-    
+
     def Print(self):
-        print("parent:", self.parent.fitness, "child:", self.child.fitness)
-    
-    def Show_Best(self): # no idea what this function is supposed to do
-        self.parent
+        print(" ")
+        print('Parent fitness: ', self.parent.fitness, ', Child fitness:', self.child.fitness)
+
+    def Show_Best(self):
+        self.Select()
+        self.parent.Evaluate("GUI")
         

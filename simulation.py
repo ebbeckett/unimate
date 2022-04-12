@@ -7,6 +7,7 @@ import sys
 from world import WORLD
 from robot import ROBOT
 
+# CHANGE HERE
 class SIMULATION:
     def __init__(self, directOrGui, solutionID):
         self.directOrGui = directOrGui
@@ -30,7 +31,7 @@ class SIMULATION:
             self.robot.Think()
             self.robot.Act()
             if self.directOrGui == 'GUI':
-                time.sleep(0.001)
+                time.sleep(1/240)
 
     def Get_Fitness(self):
         self.robot.Get_Fitness()

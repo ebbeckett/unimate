@@ -1,19 +1,19 @@
-import numpy
-import matplotlib.pyplot
+import numpy as np
+import matplotlib.pyplot as plt
 
-#backLegSensorValues = numpy.load('data/bcklegvalfile.npy')
-#print(backLegSensorValues)
+#backLegSensorValues = np.load('data/backLegSensorValues.npy')
+#frontLegSensorValues = np.load('data/frontLegSensorValues.npy')
 
-#frntLegSensorValues = numpy.load('data/frntlegvalfile.npy')
-#print(backLegSensorValues)
+#print (backLegSensorValues)
+#print (frontLegSensorValues)
 
-#matplotlib.pyplot.plot(backLegSensorValues, linewidth=2, label="Backleg Sensor Vals")
-#matplotlib.pyplot.plot(frntLegSensorValues, linewidth=2, label="Frontleg Sensor Vals")
-#matplotlib.pyplot.legend()
+#plt.plot(backLegSensorValues, label='Back Leg', linewidth=5)
+#plt.plot(frontLegSensorValues, label='Front Leg')
 
-sinVal = numpy.load('data/numpsin.npy')
+# Plot target Angles
+#targetAngles = np.load('data/targetAngles.npy')
+#print (targetAngles)
+#plt.plot(targetAngles, np.sin(targetAngles))
 
-matplotlib.pyplot.plot(sinVal,linewidth=4, label="sin val")
-matplotlib.pyplot.legend()
-
-matplotlib.pyplot.show()
+plt.legend()
+plt.show()
