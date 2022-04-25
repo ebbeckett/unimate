@@ -1,33 +1,17 @@
 pybullet build time: Jan 23 2022 14:00:43
-Version = 4.1 Metal - 71.7.1
-Vendor = Apple
-Renderer = Apple M1
-b3Printf: Selected demo: Physics Server
-startThreads creating 1 threads.
-starting thread 0
-started thread 0 
-MotionThreadFunc thread started
-b3Printf: b3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,126]:
-
-b3Printf: expected a world element, continuing without it.
+b3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,126]:
+expected a world element, continuing without it.brain4.nndf
 Traceback (most recent call last):
-  File "/Users/ericbeckett/Desktop/school/code/cs206/unimate/simulate.py", line 11, in <module>
-    simulation = SIMULATION(directOrGui, solutionID)
-  File "/Users/ericbeckett/Desktop/school/code/cs206/unimate/simulation.py", line 23, in __init__
-    self.world = WORLD()
-  File "/Users/ericbeckett/Desktop/school/code/cs206/unimate/world.py", line 5, in __init__
-    p.loadSDF("world.sdf")
-pybullet.error: Cannot load SDF file.
-Exception ignored in: <function SIMULATION.__del__ at 0x114a07dc0>
-Traceback (most recent call last):
-  File "/Users/ericbeckett/Desktop/school/code/cs206/unimate/simulation.py", line 40, in __del__
-    p.disconnect()
-pybullet.error: Not connected to physics server.
-numActiveThreads = 0
-stopping threads
-Thread with taskId 0 exiting
-Thread TERMINATED
-destroy semaphore
-semaphore destroyed
-destroy main semaphore
-main semaphore destroyed
+  File "/Users/ericbeckett/Desktop/school/code/cs206/unimate/simulate.py", line 12, in <module>
+    simulation.Run()
+  File "/Users/ericbeckett/Desktop/school/code/cs206/unimate/simulation.py", line 31, in Run
+    self.robot.Think()
+  File "/Users/ericbeckett/Desktop/school/code/cs206/unimate/robot.py", line 42, in Think
+    self.nn.Update()
+  File "/Users/ericbeckett/Desktop/school/code/cs206/unimate/pyrosim/neuralNetwork.py", line 38, in Update
+    self.neurons[key].Update_Sensor_Neuron()
+  File "/Users/ericbeckett/Desktop/school/code/cs206/unimate/pyrosim/neuron.py", line 70, in Update_Sensor_Neuron
+    self.Set_Value(pyrosim.Get_Touch_Sensor_Value_For_Link(self.Get_Link_Name()))
+  File "/Users/ericbeckett/Desktop/school/code/cs206/unimate/pyrosim/pyrosim.py", line 49, in Get_Touch_Sensor_Value_For_Link
+    desiredLinkIndex = linkNamesToIndices[linkName]
+KeyError: 'BackLowerLeg'
