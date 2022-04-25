@@ -9,7 +9,7 @@ phc = PARALLEL_HILL_CLIMBER()
 phc.Evolve()
 phc.Show_Best()
 
-np.save('abtestnumpy.txt', phc.ABTestArray)
+np.save('abtestnumpy', phc.ABTestArray)
 
 #os.system("python3 generate.py")
 #os.system("python3 simulate.py")
