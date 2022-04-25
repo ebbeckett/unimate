@@ -17,8 +17,9 @@ front_phaseOffset = 0
 numberOfGenerations = 5
 populationSize = 5
 
-numSensorNeurons = 6
-numMotorNeurons = 12
+numSensorNeurons = 3
+numMotorNeurons = 2
+
 
 motorJointRange = 0.2
 
