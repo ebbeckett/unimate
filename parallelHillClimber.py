@@ -18,7 +18,7 @@ class PARALLEL_HILL_CLIMBER:
         
         self.currentGeneration = 0
 
-        self.ABTestArray = np.zeros((0,0)) # might brake
+        self.ABTestArray = np.zeros((5,5)) # might brake
 
 
         
@@ -78,7 +78,7 @@ class PARALLEL_HILL_CLIMBER:
 
         for key in range(0, c.populationSize):
             solutions[key].Wait_For_Simulation_To_End()
-            self.ABTestArray = np.insert(self.ABTestArray, self.currentGeneration, solutions[key].fitness) 
+            self.ABTestArray[self.currentGeneration, key] = solutions[key].fitness
         
         print(self.ABTestArray)
 
