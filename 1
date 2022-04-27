@@ -1,4 +1,5 @@
 pybullet build time: Jan 23 2022 14:00:43
+brain29.nndf
 Version = 4.1 Metal - 71.7.1
 Vendor = Apple
 Renderer = Apple M1
@@ -10,19 +11,6 @@ MotionThreadFunc thread started
 b3Printf: b3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,126]:
 
 b3Printf: expected a world element, continuing without it.
-Traceback (most recent call last):
-  File "/Users/ericbeckett/Desktop/school/code/cs206/unimate/simulate.py", line 11, in <module>
-    simulation = SIMULATION(directOrGui, solutionID)
-  File "/Users/ericbeckett/Desktop/school/code/cs206/unimate/simulation.py", line 23, in __init__
-    self.world = WORLD()
-  File "/Users/ericbeckett/Desktop/school/code/cs206/unimate/world.py", line 5, in __init__
-    p.loadSDF("world.sdf")
-pybullet.error: Cannot load SDF file.
-Exception ignored in: <function SIMULATION.__del__ at 0x114a07dc0>
-Traceback (most recent call last):
-  File "/Users/ericbeckett/Desktop/school/code/cs206/unimate/simulation.py", line 40, in __del__
-    p.disconnect()
-pybullet.error: Not connected to physics server.
 numActiveThreads = 0
 stopping threads
 Thread with taskId 0 exiting
